@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Londrina Solid', cursive;
+}
+nav {
+    height: 9rem;
+    background-image: url(./img/digimonLogo2.png);
+    background-repeat: no-repeat;
+    background-position-x: 9rem;
+    background-position-y: 2rem;
+    padding-top: 2rem;
+}
+.logo {
+    height: 30%;
+    width: 30%;
+}
+.Agumon {
+    height: 5rem;
+    width: 5rem;
+}
+.nav-link {
+    font-size: 1.4rem;
+    margin-right: 6rem;
+}
+.card-text {
+    font-weight: 300;
+}
+.card {
+    height: 100%;
+}
+.modal-title {
+    font-size: 3rem !important;
+}
