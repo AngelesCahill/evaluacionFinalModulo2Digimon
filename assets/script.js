@@ -3,29 +3,60 @@ let cardDigimon;
 let levelRookie;
 let rookieTable;
 
-function buscarNombre(){
-
+  function buscarNombre() {
+    let nombreDigimon = document.getElementById("buscar").value;
+    nombreDigimon = nombreDigimon.toLowerCase();
+      fetch(URL + '/name/' + nombreDigimon)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          mostrarDigimonBusqueda(data);
+        });
 };
+function mostrarDigimonBusqueda(data) {
+  let tabla = document.getElementById("digimonTable");
+  tabla.innerHTML = "";
+  for (i of data) {
+    console.log(i)
+    tabla.innerHTML = `
+    <table class="table">
+      <h4>Tu busqueda: </h4>
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Nivel</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${i.name}</td>
+          <td>${i.level}</td>
+          <td>${i.img}</td>
+        </tr>
+      </tbody>
+    </table>
+    `;
+  }
+}
 
 $(document).ready(function () {
   cardDigimon = document.getElementById("cardDigimon");
-  levelRookie = document.getElementById("levelRookie");
-  rookieTable = document.getElementById("rookieTable");
 
   fetch(URL)
     .then((res) => res.json())
-    .then(data => {
+    .then((data) => {
       console.log(data);
       mostrarDatos(data);
     })
-      
+
     .catch((error) => console.log(error));
-  
+
   function mostrarDatos(data) {
     cardDigimon.innerHTML = "";
     for (i = 0; i <= data.length; i++) {
       cardDigimon.innerHTML += `
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img src="${data[i].img}" class="card-img-top" alt="Imagen">
         <div class="card-body text-center">
           <h5 class="card-title">${data[i].name}</h5>
@@ -55,6 +86,7 @@ $(document).ready(function () {
     `;
     }
   }
+
 
 });
 

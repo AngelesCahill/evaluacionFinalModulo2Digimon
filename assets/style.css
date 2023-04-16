@@ -12,14 +12,6 @@ nav {
     background-position-y: 2rem;
     padding-top: 2rem;
 }
-.logo {
-    height: 30%;
-    width: 30%;
-}
-.Agumon {
-    height: 5rem;
-    width: 5rem;
-}
 .nav-link {
     font-size: 1.4rem;
     margin-right: 6rem;
@@ -27,19 +19,6 @@ nav {
 .card-text {
     font-weight: 300;
 }
-.card {
-    height: 100%;
-}
 .modal-title {
     font-size: 3rem !important;
-}
-.espacioTabla {
-    display: none;
-    height: 5rem;
-    background-color: red;
-}
-.rookieTableVisible {
-    display: block;
-    height: 5rem;
-    background-color: red;
 }
