@@ -34,34 +34,45 @@
                         Por Nivel
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="" onclick="mostrarRookie()">Rookie</a></li>
+                        <li>
+                            <a class="dropdown-item" id="rookie" type="button" href="" onclick="mostrarTabla()">Rookie</a>
+                        </li>
                         <li><a class="dropdown-item" href="">In Training</a></li>
                         <li><a class="dropdown-item" href="">Champion</a></li>
                         <li><a class="dropdown-item" href="">Ultimate</a></li>
                     </ul>
                 </li>
+                <form class="d-flex" role="search">
+                    <input id="buscar" class="form-control me-2" type="search" placeholder="Nombre Digimon" aria-label="Search">
+                <button class="btn btn-outline-success" type="button" onclick="buscarNombre()">Buscar</button>
+            </form>
             </ul>
             </div>
         </div>
     </nav>
-
-    <!--Cards Digimon-->
-    <div class="row mt-5" id="cardDigimon">
-        <div class="card-body">
-
+    
+    <div class="container">
+        <!--Mostrar solo level Rookie-->
+        <div class="row mt-5 espacioTabla" id="rookieTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody id="levelRookie">
+                    
+                </tbody>
+            </table>
         </div>
+        <!--Cards Digimon-->
+        <div class="row mt-5" id="cardDigimon"></div>
+
+ 
     </div>
-
-    <!--Mostrar solo level Rookie-->
-    <div class="row mt-5" id="levelRookie">
-        <div class="card-body">
-
-        </div>
-    </div>
-
-
-
-
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

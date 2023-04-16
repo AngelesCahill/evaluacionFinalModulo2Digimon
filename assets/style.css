@@ -33,3 +33,13 @@ nav {
 .modal-title {
     font-size: 3rem !important;
 }
+.espacioTabla {
+    display: none;
+    height: 5rem;
+    background-color: red;
+}
+.rookieTableVisible {
+    display: block;
+    height: 5rem;
+    background-color: red;
+}
