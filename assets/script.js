@@ -5,7 +5,7 @@ let digimonLevelCardsChampion;
 let digimonLevelCardsUltimate;
 
 function showLevelUltimate() {
-  fetch(URL + "/level/" + "champion")
+  fetch(URL + "/level/" + "ultimate")
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -13,6 +13,9 @@ function showLevelUltimate() {
     });
 };
 function showUltimate(data) {
+  document.getElementById("digimonLevelCardsUltimate").style.display = 'flex';
+  document.getElementById("digimonLevelCardsRookie").style.display = "none";
+  document.getElementById("digimonLevelCardsChampion").style.display = "none";
   let digimonLevelCardsUltimate = document.getElementById("digimonLevelCardsUltimate");
   digimonLevelCardsUltimate.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
@@ -35,6 +38,9 @@ function showLevelChampion() {
     });
 };
 function showChampion(data) {
+    document.getElementById("digimonLevelCardsUltimate").style.display = "none";
+    document.getElementById("digimonLevelCardsRookie").style.display = "none";
+    document.getElementById("digimonLevelCardsChampion").style.display = "flex";
   let digimonLevelCardsChampion = document.getElementById("digimonLevelCardsChampion");
   digimonLevelCardsChampion.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
@@ -57,6 +63,9 @@ function showLevelRookie() {
     });
 };
 function showRookie(data) {
+    document.getElementById("digimonLevelCardsUltimate").style.display = "none";
+    document.getElementById("digimonLevelCardsRookie").style.display = "flex";
+    document.getElementById("digimonLevelCardsChampion").style.display = "none";
     let digimonLevelCardsRookie = document.getElementById("digimonLevelCardsRookie");
     digimonLevelCardsRookie.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
