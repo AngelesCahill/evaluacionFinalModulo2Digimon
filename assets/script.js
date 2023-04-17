@@ -4,6 +4,31 @@ let digimonLevelCardsRookie;
 let digimonLevelCardsChampion;
 let digimonLevelCardsUltimate;
 
+function showLevelIntraining() {
+  fetch(URL + "/level/" + "in training")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      showIntraining(data);
+    });
+};
+function showIntraining(data) {
+  document.getElementById("digimonLevelCardsIntraining").style.display = "flex";
+  document.getElementById("digimonLevelCardsUltimate").style.display = 'none';
+  document.getElementById("digimonLevelCardsRookie").style.display = "none";
+  document.getElementById("digimonLevelCardsChampion").style.display = "none";
+  let digimonLevelCardsIntraining = document.getElementById("digimonLevelCardsIntraining");
+  digimonLevelCardsIntraining.innerHTML = "";
+  for (i = 0; i <= data.length; i++) {
+    digimonLevelCardsIntraining.innerHTML += `
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2 mb-1">
+        <div class="card">
+          <img src="${data[i].img}" class="card-img-top" alt="Digimon Rookie">
+        </div>
+      </div>
+    `;
+  }
+};
 function showLevelUltimate() {
   fetch(URL + "/level/" + "ultimate")
     .then((res) => res.json())
@@ -16,6 +41,7 @@ function showUltimate(data) {
   document.getElementById("digimonLevelCardsUltimate").style.display = 'flex';
   document.getElementById("digimonLevelCardsRookie").style.display = "none";
   document.getElementById("digimonLevelCardsChampion").style.display = "none";
+  document.getElementById("digimonLevelCardsIntraining").style.display = "none";
   let digimonLevelCardsUltimate = document.getElementById("digimonLevelCardsUltimate");
   digimonLevelCardsUltimate.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
@@ -40,7 +66,8 @@ function showLevelChampion() {
 function showChampion(data) {
     document.getElementById("digimonLevelCardsUltimate").style.display = "none";
     document.getElementById("digimonLevelCardsRookie").style.display = "none";
-    document.getElementById("digimonLevelCardsChampion").style.display = "flex";
+  document.getElementById("digimonLevelCardsChampion").style.display = "flex";
+  document.getElementById("digimonLevelCardsIntraining").style.display = "none";
   let digimonLevelCardsChampion = document.getElementById("digimonLevelCardsChampion");
   digimonLevelCardsChampion.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
@@ -65,7 +92,8 @@ function showLevelRookie() {
 function showRookie(data) {
     document.getElementById("digimonLevelCardsUltimate").style.display = "none";
     document.getElementById("digimonLevelCardsRookie").style.display = "flex";
-    document.getElementById("digimonLevelCardsChampion").style.display = "none";
+  document.getElementById("digimonLevelCardsChampion").style.display = "none";
+  document.getElementById("digimonLevelCardsIntraining").style.display = "none";
     let digimonLevelCardsRookie = document.getElementById("digimonLevelCardsRookie");
     digimonLevelCardsRookie.innerHTML = "";
   for (i = 0; i <= data.length; i++) {
