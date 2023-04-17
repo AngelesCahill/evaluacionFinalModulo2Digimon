@@ -20,23 +20,20 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid ms-5">
+        <div class="container-fluid ms-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Por Nivel
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Niveles
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" id="rookie" type="button" href="" onclick="mostrarTabla()">Rookie</a>
-                        </li>
-                        <li><a class="dropdown-item" href="">In Training</a></li>
-                        <li><a class="dropdown-item" href="">Champion</a></li>
-                        <li><a class="dropdown-item" href="">Ultimate</a></li>
+                        <li><a class="dropdown-item" href="#" id="rookie" onclick="showLevelRookie()">Rookie</a></li>
+                        <li><a class="dropdown-item" href="#" id="champion" onclick="showLevelChampion()">Champion</a></li>
+                        <li><a class="dropdown-item" href="#" id="ultimate" onclick="showLevelUltimate()">Ultimate</a></li>
                     </ul>
                 </li>
                 <form class="d-flex" role="search">
@@ -49,18 +46,24 @@
     </nav>
     
     <div class="container">
-        <!--Mostrar digimon buscado-->
-        <div class="row mt-5 espacioTabla">
-            <div class="col-xs-none d-sm-block" id="digimonTable">
-
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <!--Mostrar digimon buscado-->
+                <div class="row mt-5 espacioTabla" id="digimonLevelCardsRookie"></div>
+                <div class="row mt-5 espacioTabla" id="digimonLevelCardsChampion"></div>
+                <div class="row mt-5 espacioTabla" id="digimonLevelCardsUltimate"></div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <!--Mostrar digimon buscado-->
+                <div class="row mt-5" id="digimonTable"></div>
             </div>
         </div>
+        
+        
+
         <!--Cards Digimon-->
-        <div class="row mt-5">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" id="cardDigimon">
-
-            </div>
-        </div>
+        <div class="row mt-5" id="cardDigimon"></div>
     </div>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

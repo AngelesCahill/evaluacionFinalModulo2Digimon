@@ -22,3 +22,8 @@ nav {
 .modal-title {
     font-size: 3rem !important;
 }
+.verDigimon {
+    background-color: rgb(229, 82, 3);
+    border-color: rgb(238, 107, 20);
+    color: rgb(255, 255, 255);
+}

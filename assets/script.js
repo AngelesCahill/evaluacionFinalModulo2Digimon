@@ -1,7 +1,74 @@
 const URL = "https://digimon-api.vercel.app/api/digimon";
 let cardDigimon;
-let levelRookie;
-let rookieTable;
+let digimonLevelCardsRookie;
+let digimonLevelCardsChampion;
+let digimonLevelCardsUltimate;
+
+function showLevelUltimate() {
+  fetch(URL + "/level/" + "champion")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      showUltimate(data);
+    });
+};
+function showUltimate(data) {
+  let digimonLevelCardsUltimate = document.getElementById("digimonLevelCardsUltimate");
+  digimonLevelCardsUltimate.innerHTML = "";
+  for (i = 0; i <= data.length; i++) {
+    digimonLevelCardsUltimate.innerHTML += `
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2 mb-1">
+        <div class="card">
+          <img src="${data[i].img}" class="card-img-top" alt="Digimon Rookie">
+        </div>
+      </div>
+    `;
+  }
+};
+
+function showLevelChampion() {
+  fetch(URL + "/level/" + "champion")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      showChampion(data);
+    });
+};
+function showChampion(data) {
+  let digimonLevelCardsChampion = document.getElementById("digimonLevelCardsChampion");
+  digimonLevelCardsChampion.innerHTML = "";
+  for (i = 0; i <= data.length; i++) {
+    digimonLevelCardsChampion.innerHTML += `
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2 mb-1">
+        <div class="card">
+          <img src="${data[i].img}" class="card-img-top" alt="Digimon Rookie">
+        </div>
+      </div>
+    `;
+  }
+};
+
+function showLevelRookie() {
+  fetch(URL + "/level/" + "rookie")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      showRookie(data);
+    });
+};
+function showRookie(data) {
+    let digimonLevelCardsRookie = document.getElementById("digimonLevelCardsRookie");
+    digimonLevelCardsRookie.innerHTML = "";
+  for (i = 0; i <= data.length; i++) {
+    digimonLevelCardsRookie.innerHTML += `
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2 mb-1">
+        <div class="card">
+          <img src="${data[i].img}" class="card-img-top" alt="Digimon Rookie">
+        </div>
+      </div>
+    `;
+    }
+}
 
   function buscarNombre() {
     let nombreDigimon = document.getElementById("buscar").value;
@@ -14,12 +81,11 @@ let rookieTable;
         });
 };
 function mostrarDigimonBusqueda(data) {
-  let tabla = document.getElementById("digimonTable");
-  tabla.innerHTML = "";
+  let digimonLevelCards = document.getElementById("digimonTable");
+  digimonLevelCards.innerHTML = "";
   for (i of data) {
-    console.log(i)
-    tabla.innerHTML = `
-    <table class="table">
+    digimonLevelCards.innerHTML = `
+    <table class="table mx-2">
       <h4>Tu busqueda: </h4>
       <thead>
         <tr>
@@ -32,13 +98,13 @@ function mostrarDigimonBusqueda(data) {
         <tr>
           <td>${i.name}</td>
           <td>${i.level}</td>
-          <td>${i.img}</td>
+          <td><img src="${i.img}"></td>
         </tr>
       </tbody>
     </table>
     `;
   }
-}
+};
 
 $(document).ready(function () {
   cardDigimon = document.getElementById("cardDigimon");
@@ -56,17 +122,19 @@ $(document).ready(function () {
     cardDigimon.innerHTML = "";
     for (i = 0; i <= data.length; i++) {
       cardDigimon.innerHTML += `
-      <div class="card">
-        <img src="${data[i].img}" class="card-img-top" alt="Imagen">
-        <div class="card-body text-center">
-          <h5 class="card-title">${data[i].name}</h5>
-          <p class="card-text">${data[i].level}</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-${i}">
-            Ver
-          </button>
+      <div class="col-xs- col-sm-6 col-md-6 col-lg-4 col-xl-3 m-2 ms-auto me-auto">
+        <div class="card">
+          <img src="${data[i].img}" class="card-img-top" alt="Imagen">
+          <div class="card-body text-center">
+            <h5 class="card-title">${data[i].name}</h5>
+            <p class="card-text">${data[i].level}</p>
+            <button type="button" class="btn btn-primary verDigimon" data-bs-toggle="modal" data-bs-target="#modal-${i}">
+              Ver
+            </button>
+          </div>
         </div>
       </div>
-
+      
       <div class="modal fade" id="modal-${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
